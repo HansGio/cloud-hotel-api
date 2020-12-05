@@ -25,6 +25,7 @@ class AuthController extends Controller
 
         $registrationData['password'] = bcrypt($request->password); //enkripsi password
         $user = User::create($registrationData); //membuat user baru
+        $user->sendApiEmailVerificationNotification();
         return response([
             'message' => 'Register Success, a verification email has been sent to your email address',
             'user' => $user,
