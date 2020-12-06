@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Reservation;
 use Illuminate\Http\Request;
+use Validator;
 
 class ReservationController extends Controller
 {

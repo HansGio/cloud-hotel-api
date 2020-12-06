@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Room;
 use Illuminate\Http\Request;
+use Validator;
 
 class RoomController extends Controller
 {
