@@ -18,11 +18,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('register', 'Api\AuthController@register');
-Route::post('login', 'Api\AuthController@login');
 Route::get('email/verify/{id}', 'VerificationApiController@verify')->name('verificationapi.verify');
 Route::get('email/resend', 'VerificationApiController@resend')->name('verificationapi.resend');
 
+Route::post('register', 'Api\AuthController@register');
+Route::post('login', 'Api\AuthController@login');
+
 Route::group(['middleware' => 'auth:api'], function () {
+    Route::get('logout', 'Api\AuthController@logout');
     Route::get('details', 'Api\AuthController@details');
+    Route::post('update', 'Api\AuthController@update');
+    Route::post('uploadImg', 'Api\AuthController@uploadImg');
 });
