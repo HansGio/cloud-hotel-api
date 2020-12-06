@@ -29,4 +29,17 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::get('details', 'Api\AuthController@details');
     Route::post('update', 'Api\AuthController@update');
     Route::post('uploadImg', 'Api\AuthController@uploadImg');
+
+    Route::get('room', 'Api\RoomController@index');
+    Route::get('room/{id}', 'Api\RoomController@show');
+    Route::post('room', 'Api\RoomController@store');
+    Route::put('room/{id}', 'Api\RoomController@update');
+    Route::delete('room/{id}', 'Api\RoomController@destroy');
+
+    Route::get('reservation', 'Api\ReservationController@index');
+    Route::get('reservation/{id}', 'Api\ReservationController@show');
+    Route::get('reservation/user/{id}', 'Api\ReservationController@showByUserId');
+    Route::post('reservation', 'Api\ReservationController@store');
+    Route::put('reservation/{id}', 'Api\ReservationController@update');
+    Route::delete('reservation/{id}', 'Api\ReservationController@destroy');
 });
